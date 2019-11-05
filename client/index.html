@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CarPoolApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+    <meta name="HandheldFriendly" content="true" />
+
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+    <!---->
+    <!---->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Carone</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css " rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/ngTimepicker.css">
+
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style2.css" rel="stylesheet">
+    <link href="css/style-home.css" rel="stylesheet">
+
+
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+    <!-- Angular JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.0/angular-route.js"></script>
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsjBzjyA1Z7Nt6UaNMI2c-0ahj-QaIlkg&libraries=places"></script>
+    <script src="js/angucomplete-alt.min.js"></script>
+
+    <script src="directives/ngTimepicker.js"></script>
+    <script src="views/main/main.controller.js"></script>
+    <script src="views/header/header.controller.js"></script>
+    <script src="views/users/login.controller.js"></script>
+    <script src="views/main/main.controller.js"></script>
+
+    <script src="services/user.service.client.js"></script>
+
+    <script src="views/users/profile.controller.js"></script>
+    <script src="views/users/editprofile.controller.js"></script>
+    <script src="views/users/register.controller.js"></script>
+
+    <script src="services/carpool.service.client.js"></script>
+
+    <script src="views/carpool/carpool.controller.js"></script>
+    <script src="views/carpool/usercarpool.controller.js"></script>
+    <script src="views/home/home.controller.js"></script>
+    <script src="views/carpool/carpoolcrud.controller.js"></script>
+
+    <script src="services/message.service.client.js"></script>
+    <script src="views/message/message.controller.js"></script>
+
+    <script src="views/rating/ratingcrud.controller.js"></script>
+    <script src="services/rating.service.client.js"></script>
+
+    <script src="views/admin/admin.controller.js"></script>
+
+    <script src="views/search/search.controller.js"></script>
+
+    <script src="views/search/searchlist.controller.js"></script>
+
+    <script src="views/chat/chat.controller.client.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="directives/dirPagination.js"></script>
+
+    <!--
+    <script src="views/forms/forms.controller.js"></script>
+    <script src="views/sidebar/sidebar.controller.js"></script>
+
+    <script src="views/admin/admin.controller.js"></script>
+     <script src="views/admin/admin.controller.js"></script>
+
+
+    <script src="views/fields/fields.controller.js"></script>-->
+
+
+</head>
+
+<body ng-controller="MainController" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+<!-- Header for all The pages -->
+<div ng-include="'./views/header/header.view.html'"></div>
+<div ng-view></div>
+
+<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Scrolling Nav JavaScript -->
+<script src="js/jquery.parallax-1.1.3.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/scrolling-nav.js"></script>
+<script src="js/smooth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<div class="container page">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box clearfix">
+                <div class="table-responsive">
+                    <table class="table user-list">
+                        <thead>
+                        <tr>
+                            <th><span>Usuário</span></th>
+                            <th><span>ID</span></th>
+                            <th class="text-center"><span>Status</span></th>
+                            <th><span>Email</span></th>
+                            <th>Tornar Admin</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="user in model.users">
+                            <td>
+                                <img src="https://image.freepik.com/free-icon/male-user-shadow_318-34042.png
+                                ">
+                                <a ng-click="model.userProfile(user._id)" class="user-link">{{user.firstName}} {{user.lastName}}</a>
+                                <span class="user-subhead">{{user.roles}}</span>
+                            </td>
+                            <td>
+                                {{user.username}}
+                            </td>
+                            <td class="text-center">
+                                <span class="label label-success">Ativo</span>
+                            </td>
+                            <td>
+                                <a href>{{user.email}}</a>
+                            </td>
+                            <td>
+                                <a class="btn btn-info" ng-click="model.makeAdmin(user._id)">Tornar Admin</a>
+                            </td>
+                            <td style="width: 20%;">
+                                <a ng-click="model.findDetail($index)" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+									</span>
+                                </a>
+                                <a ng-click="model.deleteUser($index)" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+                                </a>
+                            </td>
+                        </tr>
+                        </div>
+
+                        </tbody>
+
+                        <div class="text-center">
+                            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="dirPagination.tpl.html"></dir-pagination-controls>
+                        </div>
+
+                    </table>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div ng-show="model.user!=null">
+        <div class="col-md-6 col-md-offset-3">
+        <table class="table table-resposive table-hover">
+
+                <thread>
+                    <th>Atributos do Usuário</th>
+                    <th>Valores</th>
+                </thread>
+
+                <tbody>
+                <tr>
+                    <td><label class="control-label">Nome:</label></td>
+                    <td>{{model.user.firstName}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">Sobrenome:</label></td>
+                    <td>{{model.user.lastName}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">ID:</label></td>
+                    <td>{{model.user.username}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">Email:</label></td>
+                    <td>{{model.user.email}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">Data de nascimento</label></td>
+                    <td>{{model.user.dob | date}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">País</label></td>
+                    <td>{{model.user.country}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">Estado</label></td>
+                    <td> {{model.user.state}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">Cidade</label></td>
+                    <td> {{model.user.city}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">Endereço</label></td>
+                    <td>{{model.user.address}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">CEP</label></td>
+                    <td>{{model.user.zipCode}}</td>
+                </tr>
+                <tr>
+                    <td><label class="control-label">Telefone</label></td>
+                    <td>{{model.user.contact}}</td>
+                </tr>
+                </tbody>
+        </table>
+    </div>
+    </div>
+</div>

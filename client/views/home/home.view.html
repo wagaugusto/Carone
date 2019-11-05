@@ -1,0 +1,55 @@
+
+
+<!-- Full Page Image Header Area -->
+<div id="page-top" class="header">
+    <div class="vert-text parallax">
+        <h1 class="header-text">Carone</h1>
+        <div  class="field" id="searchfor">
+
+
+            <!--<div angucomplete-alt-->
+                          <!--placeholder="Search for other developers"-->
+                          <!--pause="500"-->
+                          <!--selected-object="selectedUser"-->
+                          <!--remote-url="/api/carpool/search/"-->
+                          <!--title-field="location"-->
+                          <!--minlength="2"-->
+                          <!--input-class="form-control form-control-small"-->
+                          <!--match-class="highlight">-->
+            <!--</div>-->
+
+
+                <input style="margin:0 auto;"
+                       angucomplete-alt
+                       pause="500"
+                       selected-object="selectedUser"
+                       remote-url="/api/carpool/search/"
+                       title-field="location"
+                       minlength="2"
+                       input-class="form-control form-control-small"
+                       match-class="highlight"
+
+                       ng-model="model.city"
+                       type="text"
+                       id="searchterm"
+                       placeholder="Clique aqui para procurar uma carona" />
+
+            <button ng-click="model.findCarPool(model.city)" type="button" id="search">Procurar</button>
+        </div>        
+    </div>
+</div>
+
+
+<!-- Pontos de interesse -->
+<div class="">
+    <div class="row" >
+        <div class="col-md-4 col-md-offset-4 text-center">
+        </div>
+        <br/>
+        <br/>
+
+        <div class="table table-responsive" id="map" class="map-home">
+        </div>
+    </div>
+</div>
+<!-- Pontos de interesse -->

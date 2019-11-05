@@ -1,0 +1,99 @@
+
+<div class="container-fluid page">
+    <div class="row">
+
+        <!--<div class="page-header">
+           <ul class="nav nav-pills nav-justified">
+               <li role="presentation"><a href="">Profile</a></li>
+               <li role="presentation" class="active"><a href="">Create a Carpool</a></li>
+               <li role="presentation"><a href="">Edit Profile</a></li>
+               <li role="presentation"><a href="">Message Box</a></li>
+               <li role="presentation"><a href="">My CarPools</a></li>
+           </ul>
+       </div>-->
+
+        <div class="page-header">
+            <h1>Formulário de avaliação</h1>
+        </div>
+
+        <form class="form-horizontal">
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">De</label>
+                <div class="col-sm-4">
+                    <select ng-model="model.review.fromUser" class="form-control" name="repeatFromUser" id="repeatFromUser">
+                        <option ng-repeat="user in model.userList" value="{{user.username}}">{{user.username}} | {{user.firstName}} {{user.lastName}}</option>
+                    </select>
+                </div>
+
+                <label class="col-sm-1 control-label">Para</label>
+                <div class="col-sm-5">
+                    <select ng-model="model.review.toUser" class="form-control" name="repeatToUser" id="repeatToUser" >
+                        <option ng-repeat="user in model.userList" value="{{user.username}}">{{user.username}} | {{user.firstName}} {{user.lastName}}</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Avaliação</label>
+                <div class="col-sm-10">
+                    <input ng-model="model.review.review"  type="text" class="form-control" placeholder="Comentários"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nota</label>
+                <div class="col-sm-10">
+                    <input ng-model="model.review.rating"  type="text" class="form-control" placeholder="Dê sua nota"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <a ng-click="model.createReview(model.review)" class="btn btn-primary btn-block">Enviar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="table-responsive" >
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> De</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Para</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Avaliação</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Nota</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Atualizar</th>
+                <th><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> Apagar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-show="model.selectedReview!=null">
+                <td>{{model.selectedReview.fromUser}}</td>
+                <td>{{model.selectedReview.toUser}}</td>
+                <td><input ng-model="model.selectedReview.review"  type="text" class="form-control"/></td>
+                <td><input ng-model="model.selectedReview.rating"  type="text" class="form-control"/></td>
+                <td><a ng-click="model.updateReview(model.selectedReview)" class="btn btn-success btn-block" aria-label="Left Align">
+                    Update</a></td>
+            </tr>
+            <tr ng-repeat="rve in model.reviews">
+                <td>{{rve.fromUser}}</td>
+                <td>{{rve.toUser}}</td>
+                <td>{{rve.review}}</td>
+                <td>{{rve.rating}}</td>
+                <td>
+                    <a ng-click="model.selectReview($index)" class="btn btn-info btn-block" aria-label="Left Align">
+                        Selecionar</a>
+                </td>
+                <td>
+                    <a ng-click="model.deleteReview($index)" class="btn btn-danger btn-block" aria-label="Left Align">
+                        Apagar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

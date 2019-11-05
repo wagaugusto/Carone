@@ -1,0 +1,39 @@
+<!-- Navigation -->
+
+<nav class="navbar navbar-findcond navbar-fixed-top" ng-controller="HeaderController as model">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Recolher</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand main-title" href="#page-top"><span><i class="glyphicon glyphicon-map-marker logo"></i></span> Carone</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav navbar-right">
+
+                <li ng-show="!user"><a href="#/login" data-target="#login">Entrar</a></li>
+                <li ng-show="!user"><a href="#/register" data-target="#register">Registrar</a></li>
+
+                <!--<li ng-show="user" class="dropdown">
+                    <a href="#/message"class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-wechat"></i> Message Box<span class="badge">0</span></a>
+                </li>Em desenvolvimento-->
+
+                <li ng-show="user" class="dropdown">
+                    <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User: {{user.username}}<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li ng-show="user"><a href="#/usercarpool" data-target="#showprofile">Minhas caronas</a></li>
+                        <li ng-show="user"><a href="#/carpool" data-target="#carpool">Criar carona</a></li>
+                        <li ng-show="user"><a href="#/editprofile" data-target="#message">Editar perfil</a></li>
+                        <li ng-show="user"><a ng-click="model.userProfile()" data-target="#usercarpool">Ver perfil público</a></li>
+                    </ul>
+                </li>
+                <li ng-show="user.roles.indexOf('admin')>=0"><a href="#/admin" data-target="#home">Admin</a></li>
+                <li ng-show="user"><a ng-click="model.logout()" data-target="#home">Sair</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>

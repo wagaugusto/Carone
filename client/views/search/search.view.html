@@ -1,0 +1,110 @@
+
+<div class="container container-contact bootstrap snippets carpoolbody">
+    <div class="row decor-default">
+        <div class="col-md-12">
+            <div class="contact">
+                <div class="controls">
+                    <a ng-click="model.userProfile(model.selectedPool.userId)">
+                    <div class="icon icon-close">
+                    <img src="http://bootdey.com/img/Content/avatar/avatar3.png" alt="avatar" class="avatar z-depth-3">
+                    </div>
+                    </a>
+                    <div id="map" class="cover" alt="cover"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-md-5 col-xs-12">
+                        <div id="right-panel"></div>
+                    </div>
+
+                    <div class="container">
+
+                        <div class="col-lg-8 col-md-7 col-xs-12">
+
+                        <div class="jumbotron">
+
+
+                            <form class="form-horizontal" >
+
+                                <div class="row">
+                                <div class="chat-head">
+                                    <h2 class="main-title fav_color" > Detalhes</h2>
+                                    <hr style="color: black">
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                <div class="col-md-2 col-lg-2">
+                                    <label >Origem</label>
+                                </div>
+                                <div class="col-md-10 col-lg-10 ">
+                                    {{model.selectedPool.source}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 col-lg-2">
+                                <label>Destino</label>
+                                </div>
+                                <div class="col-md-10 col-lg-10 ">
+                                    {{model.selectedPool.destination}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 col-lg-2">
+                                <label>Data</label>
+                                </div>
+                                <div class="col-md-10 col-lg-10 ">
+                                    {{model.selectedPool.date | date}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 col-lg-2 ">
+                                <label>Hora</label>
+                                </div>
+                                <div class="col-md-10 col-lg-10 ">
+                                    {{model.selectedPool.time}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 col-lg-2 ">
+                                <label>Informações</label>
+                                </div>
+                                <div class="col-md-10 col-lg-10 ">
+                                    {{model.selectedPool.carInfo}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 col-lg-2 ">
+                                <label>Preço</label>
+                                </div>
+                                <div class="col-md-10 col-lg-10 ">
+                                    {{model.selectedPool.basePrice}}
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-2 col-lg-2 ">
+                                <label>Lugares</label>
+                                </div>
+                                <div class="col-md-10 col-sm-10 ">
+                                    {{model.selectedPool.noOfSeats}}
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

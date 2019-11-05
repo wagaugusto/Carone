@@ -1,0 +1,114 @@
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Nova mensagem</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">Mensagem:</label>
+                        <textarea ng-model="model.message.message" rows="3" class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-default" data-dismiss="modal">Fechar</a>
+                <a type="button" ng-click="model.sendMessage(model.message)" class="btn btn-primary">Enviar mensagem</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class=" profile_continer bootstrap snippet profile_page">
+
+    <div class="profile_row">
+        <div class="profile_panel ">
+            <div class="cover-photo">
+                <div class="fb-timeline-img">
+                    <img ng-src="http://pre02.deviantart.net/ae8b/th/pre/f/2012/139/2/d/street_wallpaper_by_microkey-d50ap4m.jpg" class="port" alt="">
+                </div>
+                <div class="fb-name">
+                    <h2><a href="#" class="colora">{{model.user.firstName}} {{model.user.lastName}}</a>
+                    </h2>
+
+                </div>
+            </div>
+
+
+        <div class="panel-body">
+                <div class="profile-thumb">
+                    <img ng-if="model.user.image" ng-src="{{model.user.image}}" alt="">
+                    <img ng-if="!model.user.image" ng-src="http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png" alt="">
+                </div>
+
+
+                <div class="fb-user-mail info row">
+                        <p><span class="fa fa-map-marker colora"></span> <span class="title">Endereço:</span>  {{model.user.state}},{{model.user.country}}</p>
+                        <p><span class="fa fa-envelope-o colora"></span> <span class="title">E-Mail:</span> {{model.user.email}}</p>
+                        <p><span class="fa fa-user colora"></span> <span class="title">ID:</span> {{model.user.username}}</p>
+
+
+                    </div>
+
+                <div class="actions pull-right">
+                <div class="btn-group">
+                    <button class="btn tip btn-responsive col-xs-12 form-btn pull-right" title="" data-toggle="modal" data-target="#exampleModal" data-original-title="Send message"><span class="glyphicon glyphicon-envelope glyphicon glyphicon-white"></span> Mensagem</button>
+                </div>
+                </div>
+        </div>
+        </div>
+
+        <div class="profile_panel profile-info">
+                <form>
+                    <textarea  ng-model="model.review.review" class="form-control input-lg p-text-area" rows="4" placeholder="Dê sua opinião"></textarea>
+                </form>
+                <footer class="panel-footer col-md-12">
+                    <div class="nav col-md-6 pull-left">
+                        <div id="stars" class="starrr"></div><div id="count"></div>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                    <a ng-click="model.createReview()" class="btn form-btn col-xs-12 pull-right">
+                        <i class="fa fa-check-square-o"></i>
+                        Salvar avaliação
+                    </a>
+                    </div>
+                 </footer>
+        </div>
+
+
+        <div style="padding-top: 100px">
+
+        </div>
+
+
+        <div class="panel profile_panel" ng-repeat="review in model.reviews">
+            <div class="panel-body">
+                <div class="fb-user-thumb">
+                    <img src="http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png" alt="">
+                </div>
+
+                <div class="fb-user-details">
+                    <h3><a ng-click="model.goProfile(review.fromUser)" class="#">{{review.fromUser}}</a></h3>
+                    <p>{{review.created | date}}</p>
+                    <p>{{review.rating}} stars</p>
+                </div>
+
+
+                <div class="clearfix"></div>
+
+                <p class="fb-user-status">
+                    {{review.review}}
+                </p>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
