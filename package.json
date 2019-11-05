@@ -18,7 +18,7 @@
     "cors": "*",
     "express": "~3.4.4",
     "express-session": "^1.13.0",
-    "mongoose": "^4.4.10",
+    "mongoose": "^5.7.5",
     "multer": "^1.1.0",
     "ng-timepicker": "^0.9.0",
     "passport": "^0.3.2",
