@@ -19,23 +19,32 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 
 var mongoose = require("mongoose");
 
-var connectionString = 'mongodb://localhost/carone';
+//var connectionString = 'mongodb://localhost/carone';
+var connectionString = 'mongodb+srv://wagaugusto:W8uH6GqihQtBdWfj@cluster0-h4z8c.azure.mongodb.net/test?retryWrites=true&w=majority';
 
 // use remote connection string
 // if running in remote server
-if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+/*if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
     process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
     process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
     process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
     process.env.OPENSHIFT_APP_NAME;
-}
+}*/
 
-var db = mongoose.connect(connectionString , function(){
+/*var db = mongoose.connect(connectionString , function(){
     console.log('Connect to the database ' + connectionString)
-});
+});*/
 
-// var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+var db = mongoose.connect(connectionString, {
+    reconnectTries: 100,
+    reconnectInterval: 500,
+    autoReconnect: true,
+    useNewUrlParser: true
+  })
+    .catch(err => console.log('Mongo connection error', err))
+
+//var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 var request = require('request');
 
@@ -52,7 +61,7 @@ var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 // configure session support
-// var key=process.env.SESSION_SECRET;
+//var key=process.env.SESSION_SECRET;
 var key="dhiraj";
 app.use(session({
     secret: key,
